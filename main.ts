@@ -42,13 +42,14 @@ basic.forever(function () {
     basic.pause(randint(500, 1000))
     objeto = game.createSprite(randint(0, 4), 0)
     for (let index = 0; index < 4; index++) {
-        basic.pause(100)
+        basic.pause(200)
         objeto.change(LedSpriteProperty.Y, 1)
     }
     if (objeto.isTouching(jugador)) {
+        game.setScore(game.score() + 1)
+    } else {
         game.removeLife(1)
     }
-    basic.pause(200)
-    game.setScore(game.score() + 1)
     objeto.delete()
+    basic.pause(200)
 })
